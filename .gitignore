@@ -1,0 +1,14 @@
+# VSCode
+cache/
+.vscode/
+
+# Data files
+data/
+data_for_algo_analysis/
+fceux64_old/
+fceux64/ROMs
+
+# Misc. files
+analysis_old.m
+analysis.m
+scratchpad.m
