@@ -376,9 +376,9 @@ if toggleButtonState == get(hObject,'Max')
                a = char(fread(fceux, fceux.BytesAvailable))';
            end
            dataPacket = strsplit(a,',');
-           playerState(count) = str2num(dataPacket{1});
-           isMainScreen(count) = ~logical(str2num(dataPacket{2}));
-           positionInLevel(count) = str2num(dataPacket{3});
+           playerState(count) = str2double(dataPacket{1});
+           isMainScreen(count) = ~logical(str2double(dataPacket{2}));
+           positionInLevel(count) = str2double(dataPacket{3});
            score = double(unicode2native(dataPacket{4}));
            score(count) = sum(score.*10.^[length(score)-1:-1:0]);
            
@@ -478,24 +478,22 @@ if toggleButtonState == get(hObject,'Max')
     
     setappdata(handles.figure1,'data_sampleNumber',sampleNumber);
     setappdata(handles.figure1,'data_timeStampsMsec',timeStampsMsec);
-    setappdata(handles.figure1,'data_recordedNumberOfSamples',recordedNumberOfSamples);
     setappdata(handles.figure1,'data_ibi',ibi);
     setappdata(handles.figure1,'data_beat',beat);
+    setappdata(handles.figure1,'data_dataRel',dataRel);
     setappdata(handles.figure1,'data_hrAvg',hrAvg);
     setappdata(handles.figure1,'data_hrvAvg',hrvAvg);
-    setappdata(handles.figure1,'data_dataRel',dataRel);
     setappdata(handles.figure1,'data_playerState',playerState);
     setappdata(handles.figure1,'data_isMainScreen',isMainScreen);
     setappdata(handles.figure1,'data_positionInLevel',positionInLevel);
     setappdata(handles.figure1,'data_score',score);
+    setappdata(handles.figure1,'data_recordedNumberOfSamples',recordedNumberOfSamples);
     
     %---------- Saving data in base workspace ----------
-    assignin('base','samplingRate',samplingRate);
-    assignin('base','recordedNumberOfSamples',recordedNumberOfSamples);
-    assignin('base','data_sampleNumber',sampleNumber);
-    assignin('base','data_timeStampsMsec',timeStampsMsec);
-    assignin('base','beat',beat(1:recordedNumberOfSamples));
+    assignin('base','sampleNumber',sampleNumber);
+    assignin('base','timeStampsMsec',timeStampsMsec);
     assignin('base','ibi',ibi(1:recordedNumberOfSamples));
+    assignin('base','beat',beat(1:recordedNumberOfSamples));
     assignin('base','dataRel',dataRel(1:recordedNumberOfSamples));
     assignin('base','hrAvg',hrAvg(1:recordedNumberOfSamples));
     assignin('base','hrvAvg',hrvAvg(1:recordedNumberOfSamples));
@@ -503,7 +501,9 @@ if toggleButtonState == get(hObject,'Max')
     assignin('base','isMainScreen',isMainScreen(1:recordedNumberOfSamples));
     assignin('base','positionInLevel',positionInLevel(1:recordedNumberOfSamples));
     assignin('base','score',score(1:recordedNumberOfSamples));
-           
+    assignin('base','recordedNumberOfSamples',recordedNumberOfSamples);
+    assignin('base','samplingRate',samplingRate);
+             
     GuiStates(handles,'stopped');
     CalculateResults(handles)
      
@@ -543,6 +543,10 @@ sessionId = getappdata(handles.figure1,'settings_sessionId');
 fid=fopen(sprintf('data/%s_Log.txt',sessionId),'wt');
 fprintf(fid,'%s -> %s\n', logSysData',logSysData');
 fclose(fid);
+
+FileName = sprintf('data/%s_Data',sessionId);
+evalin('base', ['save(''', FileName ''')']);
+
 
 
 
@@ -758,16 +762,16 @@ setappdata(handles.figure1,'data_sampleNumber',[]);
 setappdata(handles.figure1,'data_timeStampsMsec',[]);
 setappdata(handles.figure1,'data_ibi',[]);
 setappdata(handles.figure1,'data_beat',[]);
+setappdata(handles.figure1,'data_dataRel',[]);
 setappdata(handles.figure1,'data_hrAvg',[]);
 setappdata(handles.figure1,'data_hrvAvg',[]);
-setappdata(handles.figure1,'data_dataRel',[]);
 setappdata(handles.figure1,'data_playerState',[]);
 setappdata(handles.figure1,'data_isMainScreen',[]);
 setappdata(handles.figure1,'data_positionInLevel',[]);
 setappdata(handles.figure1,'data_score',[]);
+setappdata(handles.figure1,'data_recordedNumberOfSamples',[]);
 setappdata(handles.figure1,'data_recordedSessionDuration',[]);
 setappdata(handles.figure1,'data_recordedSamplingRate',[]);
-setappdata(handles.figure1,'data_recordedNumberOfSamples',[]);
 setappdata(handles.figure1,'data_dataQuality',[]);
 
 drawnow
@@ -911,7 +915,7 @@ try
     LUA_FullPath = [pwd,'\fceux64\luaScripts\','BioNES.lua'];
     
     % Starting game
-    FCEUX_cmd = ['fceux64\fceux64.exe',sp,'-pal 1',sp,'-lua',sp,LUA_FullPath,sp,br,ROM_FullPath,br,sp,'&'];
+    FCEUX_cmd = ['fceux64\fceux64.exe',sp,'ntsc',sp,'-lua',sp,LUA_FullPath,sp,br,ROM_FullPath,br,sp,'&'];
     system(FCEUX_cmd);
     logSys(handles, "New instance of FCEUX is started and Game loaded.")
     
