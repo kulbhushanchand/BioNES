@@ -248,8 +248,10 @@ if toggleButtonState == get(hObject,'Max')
     relaxedHrv = getappdata(handles.figure1,'data_relaxedHrv');
     stressedHrv = getappdata(handles.figure1,'data_stressedHrv');
    
+    
+    
     count = 0;
-    nBeat = 20;
+    nBeat = 30;
     ibiS = 0;
     hrvS = 0;
     hrAvgS = 0;
@@ -265,6 +267,7 @@ if toggleButtonState == get(hObject,'Max')
     dataRel = nan(1, numberOfSamples);
     playerState = nan(1, numberOfSamples);
     isMainScreen = nan(1, numberOfSamples);
+    gameMode = nan(1, numberOfSamples);
     positionInLevel = nan(1, numberOfSamples);
     score = nan(1, numberOfSamples);    
     isArrFull = 0;
@@ -283,14 +286,14 @@ if toggleButtonState == get(hObject,'Max')
     set(handles.axes1,'ylim',[0 100]);
     
     % timer_buttonUpdate = tic;
+    
     timeIntervalUs = timeInterval * 10^6;
     timeJitterUs = 0;
     tic;
     timeSample = toc*10^6;
-    
+    warnTime = timeSample;
     gta =  getappdata(handles.figure1,'settings_gta');
     
-    isSMB = true;
     isGTA = false;
     
     while(toggleButtonState && (toc <= sessionDuration) )
@@ -378,14 +381,15 @@ if toggleButtonState == get(hObject,'Max')
            dataPacket = strsplit(a,',');
            playerState(count) = str2double(dataPacket{1});
            isMainScreen(count) = ~logical(str2double(dataPacket{2}));
-           positionInLevel(count) = str2double(dataPacket{3});
-           score = double(unicode2native(dataPacket{4}));
+           gameMode(count) = str2double(dataPacket{3});
+           positionInLevel(count) = str2double(dataPacket{4});
+           score = double(unicode2native(dataPacket{5}));
            score(count) = sum(score.*10.^[length(score)-1:-1:0]);
            
-           %  sprintf("State = %d     Screen = %d     Position = %d   Score = %d\n", playerState(count), isMainScreen(count), positionInLevel(count), score(count))
-           
-           sprintf("HRV = %d     Dev = %d    Bar = %d", currentHrv, perHrvDeviation, bar)
-           newline
+         %  sprintf("State = %d     Screen = %d    Game mode = %d   Position = %d   Score = %d\n", playerState(count), isMainScreen(count), gameMode(count), positionInLevel(count), score(count))
+         
+         %  sprintf("HRV = %d     Dev = %d    Bar = %d", currentHrv, perHrvDeviation, bar)
+          
        end
       
        
@@ -416,6 +420,25 @@ if toggleButtonState == get(hObject,'Max')
                 otherwise
                     disp('fceux command not set')
             end
+            
+            if((playerState(count) == 8) && isMainScreen(count) && gameMode(count))
+                if(bar == 0)
+                    if((timeSample - warnTime) > 10*10^6)
+                        sprintf("mario dies at %d", timeSample)
+                        fwrite(fceux, 10)
+                        warnTime = timeSample;
+                    end
+                    % show warning
+                    fwrite(fceux, 11)
+                else
+                    warnTime = timeSample;
+                end
+            else
+                warnTime = timeSample;
+            end
+            
+            
+            
         end
         
          
@@ -485,6 +508,7 @@ if toggleButtonState == get(hObject,'Max')
     setappdata(handles.figure1,'data_hrvAvg',hrvAvg);
     setappdata(handles.figure1,'data_playerState',playerState);
     setappdata(handles.figure1,'data_isMainScreen',isMainScreen);
+    setappdata(handles.figure1,'data_gameMode',gameMode);
     setappdata(handles.figure1,'data_positionInLevel',positionInLevel);
     setappdata(handles.figure1,'data_score',score);
     setappdata(handles.figure1,'data_recordedNumberOfSamples',recordedNumberOfSamples);
@@ -499,11 +523,24 @@ if toggleButtonState == get(hObject,'Max')
     assignin('base','hrvAvg',hrvAvg(1:recordedNumberOfSamples));
     assignin('base','playerState',playerState(1:recordedNumberOfSamples));
     assignin('base','isMainScreen',isMainScreen(1:recordedNumberOfSamples));
+    assignin('base','gameMode',gameMode(1:recordedNumberOfSamples));
     assignin('base','positionInLevel',positionInLevel(1:recordedNumberOfSamples));
     assignin('base','score',score(1:recordedNumberOfSamples));
-    assignin('base','recordedNumberOfSamples',recordedNumberOfSamples);
-    assignin('base','samplingRate',samplingRate);
-             
+    
+    mainData = [sampleNumber(1:recordedNumberOfSamples);
+                timeStampsMsec(1:recordedNumberOfSamples);
+                ibi(1:recordedNumberOfSamples);
+                beat(1:recordedNumberOfSamples);
+                dataRel(1:recordedNumberOfSamples);
+                hrAvg(1:recordedNumberOfSamples);
+                hrvAvg(1:recordedNumberOfSamples);
+                playerState(1:recordedNumberOfSamples);
+                isMainScreen(1:recordedNumberOfSamples);
+                gameMode(1:recordedNumberOfSamples);
+                positionInLevel(1:recordedNumberOfSamples);
+                score(1:recordedNumberOfSamples)]';
+    assignin('base','mainData',mainData);
+    
     GuiStates(handles,'stopped');
     CalculateResults(handles)
      
@@ -767,6 +804,7 @@ setappdata(handles.figure1,'data_hrAvg',[]);
 setappdata(handles.figure1,'data_hrvAvg',[]);
 setappdata(handles.figure1,'data_playerState',[]);
 setappdata(handles.figure1,'data_isMainScreen',[]);
+setappdata(handles.figure1,'data_gameMode',[]);
 setappdata(handles.figure1,'data_positionInLevel',[]);
 setappdata(handles.figure1,'data_score',[]);
 setappdata(handles.figure1,'data_recordedNumberOfSamples',[]);

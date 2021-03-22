@@ -99,21 +99,21 @@ function Debug()
 end
 
 function SetBar0()
-    print "Bar 0"
+--   print "Bar 0"
     memory.writebyterangeppu(0x23C2, "\239\175\175\175")
     memory.writebyterangeppu(0x2008,
                              "\37\37\37\37\37\37\37\37\37\37\37\37\37\37\37\37")
 end
 
 function SetBar1()
-    print "Bar 1"
+--  print "Bar 1"
     memory.writebyterangeppu(0x23C2, "\235\170\170\170")
     memory.writebyterangeppu(0x2008,
                              "\38\38\37\37\37\37\37\37\37\37\37\37\37\37\37\37")
 end
 
 function SetBar2()
-    print "Bar 2"
+--    print "Bar 2"
     --    memory.writebyterangeppu(0x23C2, "\239\160\160\160")
     --    memory.writebyterangeppu(0x2008, "\38\38\38\38\39\39\39\39\39\39\39\39\39\39\39\39")
     memory.writebyterangeppu(0x23C2, "\239\170\170\170")
@@ -122,42 +122,42 @@ function SetBar2()
 end
 
 function SetBar3()
-    print "Bar 3"
+--    print "Bar 3"
     memory.writebyterangeppu(0x23C2, "\239\171\170\170")
     memory.writebyterangeppu(0x2008,
                              "\38\38\38\38\38\38\37\37\37\37\37\37\37\37\37\37")
 end
 
 function SetBar4()
-    print "Bar 4"
+--    print "Bar 4"
     memory.writebyterangeppu(0x23C2, "\224\160\170\170")
     memory.writebyterangeppu(0x2008,
                              "\38\38\38\38\38\38\38\38\37\37\37\37\37\37\37\37")
 end
 
 function SetBar5()
-    print "Bar 5"
+--    print "Bar 5"
     memory.writebyterangeppu(0x23C2, "\224\160\168\170")
     memory.writebyterangeppu(0x2008,
                              "\38\38\38\38\38\38\38\38\38\38\37\37\37\37\37\37")
 end
 
 function SetBar6()
-    print "Bar 6"
+--    print "Bar 6"
     memory.writebyterangeppu(0x23C2, "\224\160\160\170")
     memory.writebyterangeppu(0x2008,
                              "\38\38\38\38\38\38\38\38\38\38\38\38\37\37\37\37")
 end
 
 function SetBar7()
-    print "Bar 7"
+--    print "Bar 7"
     memory.writebyterangeppu(0x23C2, "\224\160\160\168")
     memory.writebyterangeppu(0x2008,
                              "\38\38\38\38\38\38\38\38\38\38\38\38\38\38\37\37")
 end
 
 function SetBar8()
-    print "Bar 8"
+--    print "Bar 8"
     memory.writebyterangeppu(0x23C2, "\224\160\160\160")
     memory.writebyterangeppu(0x2008,
                              "\38\38\38\38\38\38\38\38\38\38\38\38\38\38\38\38")
@@ -168,6 +168,7 @@ function GetData()
     
     local ps = memory.readbyte(14,1) -- player state
     local screen = memory.readbyte(1827,1) -- 0 when player in main screen, 1 otherwise
+    local gameMode = memory.readbyte(1904,1) -- 0 when game demo, 1 when normal
     -- position
     local a = memory.readbyte(109,1)
     local b = memory.readbyte(134,1)
@@ -176,10 +177,12 @@ function GetData()
     -- score
     local score = memory.readbyterange(2014, 6)
 
-    -- compile and send data packet
-    dataPacket = ps .. ','.. screen .. ',' .. pos .. ',' .. score
 
-    print(dataPacket)
+
+    -- compile and send data packet
+    dataPacket = ps .. ','.. screen .. ',' .. gameMode .. ',' .. pos .. ',' .. score
+
+  --  print(dataPacket)
     sock:send(dataPacket)  
 end
 
@@ -190,6 +193,9 @@ function SetTimerZero()
 
 end
 
+function SoundEffect()
+    memory.writebyte(254, 16)
+end
 
 
 function main()
@@ -209,7 +215,8 @@ function main()
         [8] = SetBar8,
         [9] = GetData,
         [10] = SetTimerZero,
-        [11] = Debug
+        [11] = SoundEffect,
+        [12] = Debug
 
     }
 
