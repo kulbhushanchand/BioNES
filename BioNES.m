@@ -294,7 +294,7 @@ if toggleButtonState == get(hObject,'Max')
     warnTime = timeSample;
     gta =  getappdata(handles.figure1,'settings_gta');
     
-    isGTA = false;
+ %   isGTA = false;
     
     while(toggleButtonState && (toc <= sessionDuration) )
         
@@ -369,11 +369,11 @@ if toggleButtonState == get(hObject,'Max')
   
        %----- Calculating deviation -----
        currentHrv = hrvAvg(count);
-       perHrvDeviation = round(max(-100, (currentHrv - relaxedHrv)/(relaxedHrv - stressedHrv)*100));
+       perHrvDeviation = round(min(-1,max(-100, (currentHrv - relaxedHrv)/(relaxedHrv - stressedHrv)*100)));
         
        %----- Get game stats -----
        if(isGameConnected)
-           fwrite(fceux, 9);
+           fwrite(fceux, 11);
            pause(0.05)
            if(fceux.BytesAvailable >0)
                a = char(fread(fceux, fceux.BytesAvailable))';
@@ -383,10 +383,10 @@ if toggleButtonState == get(hObject,'Max')
            isMainScreen(count) = ~logical(str2double(dataPacket{2}));
            gameMode(count) = str2double(dataPacket{3});
            positionInLevel(count) = str2double(dataPacket{4});
-           score = double(unicode2native(dataPacket{5}));
-           score(count) = sum(score.*10.^[length(score)-1:-1:0]);
+           scoreSample = double(unicode2native(dataPacket{5}));
+           score(count) = sum(scoreSample.*10.^[length(scoreSample)-1:-1:0]);
            
-         %  sprintf("State = %d     Screen = %d    Game mode = %d   Position = %d   Score = %d\n", playerState(count), isMainScreen(count), gameMode(count), positionInLevel(count), score(count))
+       %   sprintf("State = %d     Screen = %d    Game mode = %d   Position = %d   Score = %d\n", playerState(count), isMainScreen(count), gameMode(count), positionInLevel(count), score(count))
          
          %  sprintf("HRV = %d     Dev = %d    Bar = %d", currentHrv, perHrvDeviation, bar)
           
@@ -398,6 +398,9 @@ if toggleButtonState == get(hObject,'Max')
         if(isBiofeedback && isGameConnected)
             % Display HR and HRV
             bar = floor((100-abs(perHrvDeviation))/10);
+            
+         %   bar = round(mod(timeSample/10^6, 10));
+                       
             switch bar
                 case 0
                     fwrite(fceux, 0)
@@ -417,6 +420,8 @@ if toggleButtonState == get(hObject,'Max')
                     fwrite(fceux, 7)
                 case 8
                     fwrite(fceux, 8)
+                case 9
+                    fwrite(fceux, 8)
                 otherwise
                     disp('fceux command not set')
             end
@@ -425,36 +430,35 @@ if toggleButtonState == get(hObject,'Max')
                 if(bar == 0)
                     if((timeSample - warnTime) > 10*10^6)
                         sprintf("mario dies at %d", timeSample)
-                        fwrite(fceux, 10)
+                        fwrite(fceux, 12)
                         warnTime = timeSample;
                     end
                     % show warning
-                    fwrite(fceux, 11)
+                    fwrite(fceux, 13)
                 else
                     warnTime = timeSample;
                 end
             else
                 warnTime = timeSample;
             end
-            
-            
-            
+       
         end
         
+    %   sprintf("perDev = %d      bar = %d\n", perHrvDeviation, bar )
          
                
         %---------- Communicating with GTA5 ----------        
                
-        if(isGTA)
+ %       if(isGTA)
  %      if(gta.BytesAvailable)
  %          rG = fread(gta,1);
  %          if(rG == 'p')
-               dataGta = sprintf("h%dv%db%d",(round(hrAvg(count))), (round(hrvAvg(count))), beat(count));
-               fwrite(gta,dataGta);
+ %              dataGta = sprintf("h%dv%db%d",(round(hrAvg(count))), (round(hrvAvg(count))), beat(count));
+ %              fwrite(gta,dataGta);
  %          end
  %          flushinput(gta)   % use only ig gta makes faster requests to matlab
  %      end
-        end
+ %      end
                      
         
         

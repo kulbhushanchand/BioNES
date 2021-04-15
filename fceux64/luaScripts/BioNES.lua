@@ -101,15 +101,20 @@ end
 function SetBar0()
 --   print "Bar 0"
     memory.writebyterangeppu(0x23C2, "\239\175\175\175")
-    memory.writebyterangeppu(0x2008,
-                             "\37\37\37\37\37\37\37\37\37\37\37\37\37\37\37\37")
+    memory.writebyterangeppu(0x2008, "\37\37\37\37\37\37\37\37\37\37\37\37\37\37\37\37")
+    
+--    memory.writebyterangeppu(0x23C1, "\174\239\175\175\175\175")
+--    memory.writebyterangeppu(0x2006, "\37\37\37\37\37\37\37\37\37\37\37\37\37\37\37\37\37\37\37\37")
 end
 
 function SetBar1()
 --  print "Bar 1"
     memory.writebyterangeppu(0x23C2, "\235\170\170\170")
-    memory.writebyterangeppu(0x2008,
-                             "\38\38\37\37\37\37\37\37\37\37\37\37\37\37\37\37")
+    memory.writebyterangeppu(0x2008,"\38\38\37\37\37\37\37\37\37\37\37\37\37\37\37\37")
+
+--    memory.writebyterangeppu(0x23C1, "\174\234\170\170\170\170")
+--    memory.writebyterangeppu(0x2006, "\38\38\37\37\37\37\37\37\37\37\37\37\37\37\37\37\37\37\37\37")
+
 end
 
 function SetBar2()
@@ -117,51 +122,95 @@ function SetBar2()
     --    memory.writebyterangeppu(0x23C2, "\239\160\160\160")
     --    memory.writebyterangeppu(0x2008, "\38\38\38\38\39\39\39\39\39\39\39\39\39\39\39\39")
     memory.writebyterangeppu(0x23C2, "\239\170\170\170")
-    memory.writebyterangeppu(0x2008,
-                             "\38\38\38\38\37\37\37\37\37\37\37\37\37\37\37\37")
+    memory.writebyterangeppu(0x2008, "\38\38\38\38\37\37\37\37\37\37\37\37\37\37\37\37")
+
+--    memory.writebyterangeppu(0x23C1, "\174\235\170\170\170\170")
+--    memory.writebyterangeppu(0x2006, "\38\38\38\38\37\37\37\37\37\37\37\37\37\37\37\37\37\37\37\37")
+
+
 end
 
 function SetBar3()
 --    print "Bar 3"
     memory.writebyterangeppu(0x23C2, "\239\171\170\170")
-    memory.writebyterangeppu(0x2008,
-                             "\38\38\38\38\38\38\37\37\37\37\37\37\37\37\37\37")
+    memory.writebyterangeppu(0x2008, "\38\38\38\38\38\38\37\37\37\37\37\37\37\37\37\37")
+
+--    memory.writebyterangeppu(0x23C1, "\174\239\170\170\170\170")
+--    memory.writebyterangeppu(0x2006, "\38\38\38\38\38\38\37\37\37\37\37\37\37\37\37\37\37\37\37\37")
+
 end
 
 function SetBar4()
 --    print "Bar 4"
     memory.writebyterangeppu(0x23C2, "\224\160\170\170")
-    memory.writebyterangeppu(0x2008,
-                             "\38\38\38\38\38\38\38\38\37\37\37\37\37\37\37\37")
+    memory.writebyterangeppu(0x2008, "\38\38\38\38\38\38\38\38\37\37\37\37\37\37\37\37")
+
+--    memory.writebyterangeppu(0x23C1, "\162\224\168\170\170\170")
+--   memory.writebyterangeppu(0x2006, "\38\38\38\38\38\38\38\38\37\37\37\37\37\37\37\37\37\37\37\37")
 end
 
 function SetBar5()
 --    print "Bar 5"
     memory.writebyterangeppu(0x23C2, "\224\160\168\170")
-    memory.writebyterangeppu(0x2008,
-                             "\38\38\38\38\38\38\38\38\38\38\37\37\37\37\37\37")
+    memory.writebyterangeppu(0x2008, "\38\38\38\38\38\38\38\38\38\38\37\37\37\37\37\37")
+
+--    memory.writebyterangeppu(0x23C1, "\162\224\160\170\170\170")
+--    memory.writebyterangeppu(0x2006, "\38\38\38\38\38\38\38\38\38\38\37\37\37\37\37\37\37\37\37\37")
+
 end
 
 function SetBar6()
 --    print "Bar 6"
     memory.writebyterangeppu(0x23C2, "\224\160\160\170")
-    memory.writebyterangeppu(0x2008,
-                             "\38\38\38\38\38\38\38\38\38\38\38\38\37\37\37\37")
+    memory.writebyterangeppu(0x2008, "\38\38\38\38\38\38\38\38\38\38\38\38\37\37\37\37")
+
+--    memory.writebyterangeppu(0x23C1, "\162\224\160\168\170\170")
+--    memory.writebyterangeppu(0x2006, "\38\38\38\38\38\38\38\38\38\38\38\38\37\37\37\37\37\37\37\37")
+
 end
 
 function SetBar7()
 --    print "Bar 7"
     memory.writebyterangeppu(0x23C2, "\224\160\160\168")
-    memory.writebyterangeppu(0x2008,
-                             "\38\38\38\38\38\38\38\38\38\38\38\38\38\38\37\37")
+    memory.writebyterangeppu(0x2008, "\38\38\38\38\38\38\38\38\38\38\38\38\38\38\37\37")
+
+--    memory.writebyterangeppu(0x23C1, "\162\224\160\160\170\170")
+--    memory.writebyterangeppu(0x2006, "\38\38\38\38\38\38\38\38\38\38\38\38\38\38\37\37\37\37\37\37")
+
 end
 
 function SetBar8()
 --    print "Bar 8"
     memory.writebyterangeppu(0x23C2, "\224\160\160\160")
-    memory.writebyterangeppu(0x2008,
-                             "\38\38\38\38\38\38\38\38\38\38\38\38\38\38\38\38")
+    memory.writebyterangeppu(0x2008, "\38\38\38\38\38\38\38\38\38\38\38\38\38\38\38\38")
+
+--    memory.writebyterangeppu(0x23C1, "\162\224\160\160\168\170")
+--    memory.writebyterangeppu(0x2006, "\38\38\38\38\38\38\38\38\38\38\38\38\38\38\38\38\37\37\37\37")
+
 end
+
+
+function SetBar9()
+    --    print "Bar 9"
+--    memory.writebyterangeppu(0x23C2, "\224\160\160\160")
+--    memory.writebyterangeppu(0x2008, "\38\38\38\38\38\38\38\38\38\38\38\38\38\38\38\38")
+
+--    memory.writebyterangeppu(0x23C1, "\162\224\160\160\160\170")
+--    memory.writebyterangeppu(0x2006, "\38\38\38\38\38\38\38\38\38\38\38\38\38\38\38\38\38\38\37\37")
+
+end
+
+
+function SetBar10()
+    --    print "Bar 10"
+--    memory.writebyterangeppu(0x23C2, "\224\160\160\160")
+--    memory.writebyterangeppu(0x2008, "\38\38\38\38\38\38\38\38\38\38\38\38\38\38\38\38")
+
+--    memory.writebyterangeppu(0x23C1, "\162\224\160\160\160\168")
+--    memory.writebyterangeppu(0x2006, "\38\38\38\38\38\38\38\38\38\38\38\38\38\38\38\38\38\38\38\38")
+
+end
+
 
 
 function GetData()
@@ -213,10 +262,12 @@ function main()
         [6] = SetBar6,
         [7] = SetBar7,
         [8] = SetBar8,
-        [9] = GetData,
-        [10] = SetTimerZero,
-        [11] = SoundEffect,
-        [12] = Debug
+    --    [9] = SetBar9,
+    --    [10] = SetBar10,
+        [11] = GetData,
+        [12] = SetTimerZero,
+        [13] = SoundEffect,
+        [14] = Debug
 
     }
 
