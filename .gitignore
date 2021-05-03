@@ -5,10 +5,20 @@ cache/
 # Data files
 data/
 data_for_algo_analysis/
+
+# FCEUX files
 fceux64_old/
 fceux64/ROMs
 
+# Docs
+docs/
+docs_source/
+
 # Misc. files
-analysis_old.m
-analysis.m
-scratchpad.m
+analysis/
+#analysis_old.m
+#analysis.m
+
+
+
+.Rproj.user

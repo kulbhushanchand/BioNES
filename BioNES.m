@@ -398,7 +398,6 @@ if toggleButtonState == get(hObject,'Max')
         if(isBiofeedback && isGameConnected)
             % Display HR and HRV
             bar = floor((100-abs(perHrvDeviation))/10);
-            
          %   bar = round(mod(timeSample/10^6, 10));
                        
             switch bar
