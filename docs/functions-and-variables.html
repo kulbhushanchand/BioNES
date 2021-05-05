@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Functions and variables | BioNES documentation</title>
+  <meta name="description" content="This is the documentation for AfDaq" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Functions and variables | BioNES documentation" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="/assets/images/logo.svg" />
+  <meta property="og:description" content="This is the documentation for AfDaq" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Functions and variables | BioNES documentation" />
+  
+  <meta name="twitter:description" content="This is the documentation for AfDaq" />
+  <meta name="twitter:image" content="/assets/images/logo.svg" />
+
+<meta name="author" content="Kulbhushan Chand" />
+
+
+<meta name="date" content="2021-05-05" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="structure.html"/>
+<link rel="next" href="usage.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">BioNES documentation</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#developer"><i class="fa fa-check"></i>Developer</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#links"><i class="fa fa-check"></i>Links</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#citation"><i class="fa fa-check"></i>Citation</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#disclaimer"><i class="fa fa-check"></i>Disclaimer</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#about"><i class="fa fa-check"></i><b>1.1</b> About the project</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#built-with"><i class="fa fa-check"></i><b>1.2</b> Built with</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#features"><i class="fa fa-check"></i><b>1.3</b> Features</a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#why-this-tool"><i class="fa fa-check"></i><b>1.4</b> Why this tool?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>2</b> Getting Started</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="getting-started.html"><a href="getting-started.html#prerequisites"><i class="fa fa-check"></i><b>2.1</b> Prerequisites</a></li>
+<li class="chapter" data-level="2.2" data-path="getting-started.html"><a href="getting-started.html#installation-and-running"><i class="fa fa-check"></i><b>2.2</b> Installation and Running</a></li>
+<li class="chapter" data-level="2.3" data-path="getting-started.html"><a href="getting-started.html#gui"><i class="fa fa-check"></i><b>2.3</b> GUI</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="structure.html"><a href="structure.html"><i class="fa fa-check"></i><b>3</b> Structure</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="structure.html"><a href="structure.html#directory-structure"><i class="fa fa-check"></i><b>3.1</b> Directory structure</a></li>
+<li class="chapter" data-level="3.2" data-path="structure.html"><a href="structure.html#dependencies"><i class="fa fa-check"></i><b>3.2</b> Dependencies</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="functions-and-variables.html"><a href="functions-and-variables.html"><i class="fa fa-check"></i><b>4</b> Functions and variables</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="functions-and-variables.html"><a href="functions-and-variables.html#functions"><i class="fa fa-check"></i><b>4.1</b> Functions</a></li>
+<li class="chapter" data-level="4.2" data-path="functions-and-variables.html"><a href="functions-and-variables.html#variables"><i class="fa fa-check"></i><b>4.2</b> Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="usage.html"><a href="usage.html"><i class="fa fa-check"></i><b>5</b> Usage</a></li>
+<li class="chapter" data-level="6" data-path="roadmap.html"><a href="roadmap.html"><i class="fa fa-check"></i><b>6</b> Roadmap</a></li>
+<li class="chapter" data-level="7" data-path="changelog.html"><a href="changelog.html"><i class="fa fa-check"></i><b>7</b> Changelog</a></li>
+<li class="chapter" data-level="8" data-path="contribute.html"><a href="contribute.html"><i class="fa fa-check"></i><b>8</b> Contributing</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="contribute.html"><a href="contribute.html#how-to-contribute"><i class="fa fa-check"></i><b>8.1</b> How to contribute?</a></li>
+<li class="chapter" data-level="8.2" data-path="contribute.html"><a href="contribute.html#code-of-conduct"><i class="fa fa-check"></i><b>8.2</b> Code of Conduct</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">BioNES documentation</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="functions-and-variables" class="section level1" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Functions and variables</h1>
+<hr />
+<div id="functions" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Functions</h2>
+<p>The following list of functions is available. Each of these functions resides in the <code>BioNES.m</code> files (See brief description in Table <a href="structure.html#tab:core-directory">3.1</a>). Additionally, the <code>BioNES.m</code> file includes different callback functions associated with different sub-components of the GUI. These are self-explanatory with a brief explanation given in the function file itself.</p>
+<table>
+<caption><span id="tab:functions">Table 4.1: </span> List of available functions (GUI callback functions are not listed)</caption>
+<colgroup>
+<col width="30%" />
+<col width="70%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>SYNTAX</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>BioNES(varargin)</code></td>
+<td>Main function.</td>
+</tr>
+<tr class="even">
+<td><code>Help(varargin)</code></td>
+<td>Holds the callback functions of the help GUI.</td>
+</tr>
+<tr class="odd">
+<td><code>CalculateResults(handles)</code></td>
+<td>Calculates the final results like recorded session duration, sampling frequency, number of samples, and data quality.</td>
+</tr>
+<tr class="even">
+<td><code>connectArduino(handles,string)</code></td>
+<td>Defines the logic to connect with the `Arduino` board.</td>
+</tr>
+<tr class="odd">
+<td><code>connectGame(handles)</code></td>
+<td>Connect with the <code>FCEUX</code> and start the game.</td>
+</tr>
+<tr class="even">
+<td><code>GuiStates(handles, string)</code></td>
+<td>Initialize the GUI sub-components as per various states.</td>
+</tr>
+<tr class="odd">
+<td><code>InitializeVariables(handles)</code></td>
+<td>Function file that initializes variable to their default state.</td>
+</tr>
+<tr class="even">
+<td><code>logSys(handles, logString)</code></td>
+<td>Log system state for debugging.</td>
+</tr>
+<tr class="odd">
+<td><code>SetParam(handleName, string, color, handleType)</code></td>
+<td>Set color and text parameters for various GUI components.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="variables" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Variables</h2>
+<p>The following variables are available in 3 categories. The variable names are self-explanatory.</p>
+<table>
+<caption><span id="tab:variables">Table 4.2: </span> List of available variables</caption>
+<thead>
+<tr class="header">
+<th>Settings</th>
+<th>Data</th>
+<th>Flags</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>settings_daqDateTime</code></td>
+<td><code>data_relaxedHrv</code></td>
+<td><code>flag_isAcquiring</code></td>
+</tr>
+<tr class="even">
+<td><code>settings_sessionDate</code></td>
+<td><code>data_stressedHrv</code></td>
+<td><code>flag_isTimeRef</code></td>
+</tr>
+<tr class="odd">
+<td><code>settings_sessionTime</code></td>
+<td><code>data_sampleNumber</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>settings_customId</code></td>
+<td><code>data_timeStampsMsec</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>settings_sessionId</code></td>
+<td><code>data_ibi</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>settings_sessionDuration</code></td>
+<td><code>data_beat</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>settings_samplingRate</code></td>
+<td><code>data_dataRel</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>settings_samplingTimeInterval</code></td>
+<td><code>data_hrAvg</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>setting_plotWidth</code></td>
+<td><code>data_hrvAvg</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>settings_rightOffset</code></td>
+<td><code>data_playerState</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>settings_numberOfSamples</code></td>
+<td><code>data_isMainScreen</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>settings_serialPort</code></td>
+<td><code>data_gameMode</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>settings_ard</code></td>
+<td><code>data_positionInLevel</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>settings_fceux</code></td>
+<td><code>data_score</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>settings_xMin</code></td>
+<td><code>data_recordedNumberOfSamples</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>settings_xMax</code></td>
+<td><code>data_recordedSessionDuration</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>settings_yMin</code></td>
+<td><code>data_recordedSamplingRate</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>settings_yMax</code></td>
+<td><code>data_dataQuality</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>data_logSysData</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="structure.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="usage.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

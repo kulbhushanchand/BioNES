@@ -11,7 +11,7 @@ fceux64_old/
 fceux64/ROMs
 
 # Docs
-docs/
+#docs/
 docs_source/
 
 # Misc. files
