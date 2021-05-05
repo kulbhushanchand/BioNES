@@ -1,0 +1,3 @@
+# Roadmap {#roadmap}
+
+See the [open issues](https://github.com/kulbhushanchand/BioNES/issues) for a list of proposed features (and known issues).

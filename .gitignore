@@ -12,7 +12,7 @@ fceux64/ROMs
 
 # Docs
 docs/
-docs_source/
+#docs_source/
 
 # Misc. files
 analysis/
