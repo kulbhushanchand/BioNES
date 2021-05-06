@@ -1,0 +1,103 @@
+# Structure {#structure}
+
+---
+
+
+## Directory structure
+
+The main directory structure (with files) is shown below.
+
+```
+.
+│   .gitattributes
+│   .gitignore
+│   BioNES.fig
+│   BioNES.ino
+│   BioNES.m
+│   CODE_OF_CONDUCT.md
+│   Help.fig
+│   Help.m
+│   LICENSE
+│   README.md
+│   scratchpad.m
+│
+├───analysis
+│       analysis.m
+│       analysis_old.m
+│
+├───docs
+│
+├───docs_source
+│
+└───fceux64
+
+```
+
+An overview of what each of these does is described in the following tables.
+
+Table: (\#tab:core-directory) Description of core files/folders
+
++---------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| FILE / DIRECTORY                | DESCRIPTION                                                                                                                                                                                                                                                                                                                              |
++=================================+==========================================================================================================================================================================================================================================================================================================================================+
+| `BioNES.fig`                    | Design file that holds the layout of the GUI. It is created by `GUIDE`. It is required if further changes to GUI are needed. It is programmatically created by `GUIDE` and should not be modified outside the `GUIDE` environment. The `BioNES` can be started by opening this file.                                                     |
++---------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| `BioNES.ino`                    | Sketch file that is required to be uploaded to the Arduino board. This makes the board a to accept commands and send data to the `BioNES`.                                                                                                                                                                                               |
++---------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| `BioNES.m`                      | Function file that holds the callback functions and/or the user-defined functions which define the logic to interact with GUI. It is programmatically created by `GUIDE` during the first run and later modified by \`GUIDE\` as per changes in `BioNES.fig`. The `BioNES` can be started by executing this file from the editor window. |
++---------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| `Help.fig`                      | Design file that holds the layout of the help GUI.                                                                                                                                                                                                                                                                                       |
++---------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| `Help.m`                        | Function file that holds the callback functions of the help GUI.                                                                                                                                                                                                                                                                         |
++---------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| `fceux64`                       | Directory of `FCEUX` emulator (`64-bit` version)                                                                                                                                                                                                                                                                                         |
++---------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
+Table: (\#tab:optional-directory) Description of optional files/folders
+
++----------------------+---------------------------------------------------------------------------------------------+
+| FILE / DIRECTORY     | DESCRIPTION                                                                                 |
++======================+=============================================================================================+
+| `.gitattributes`     | File used by `git` to save settings for the project.                                        |
++----------------------+---------------------------------------------------------------------------------------------+
+| `.gitignore`         | File used by `git` to ignore specific files/folders from version control.                   |
++----------------------+---------------------------------------------------------------------------------------------+
+| `CODE_OF_CONDUCT.md` | File defining the code of conduct for contributions.                                        |
++----------------------+---------------------------------------------------------------------------------------------+
+| `LICENSE`            | File defining the terms and conditions of license for this project.                         |
++----------------------+---------------------------------------------------------------------------------------------+
+| `README.md`          | File defining a short introduction to the project.                                          |
++----------------------+---------------------------------------------------------------------------------------------+
+| `scratchpad.m`       | File used as temporary code storage/testing.                                                |
++----------------------+---------------------------------------------------------------------------------------------+
+| `docs/`              | Documentation folder                                                                        |
++----------------------+---------------------------------------------------------------------------------------------+
+| `docs_source/`       | Source of documentation. The `bookdown` package in `R` is used to create the documentation. |
++----------------------+---------------------------------------------------------------------------------------------+
+| `analysis`           | Folder with function files used in analysis of offline data.                                |
++----------------------+---------------------------------------------------------------------------------------------+
+
+
+## Dependencies
+
+Here discussed what functions and scripts `BioNES` is dependent upon. The [`matlab.codetools.requiredFilesAndProducts`](https://in.mathworks.com/help/matlab/ref/matlab.codetools.requiredfilesandproducts.html) function is used to generate the list of dependencies.
+
+**List of MathWorks products possibly required**
+
+- `MATLAB - ver.9.3`  
+- `Instrument Control Toolbox - ver.3.12`  
+
+
+**List of user-authored MATLAB program files required**
+
+```
+'C:\Users\Kulbhushan\Documents\MATLAB\BioNES\BioNES.fig'
+'C:\Users\Kulbhushan\Documents\MATLAB\BioNES\BioNES.m' 
+'C:\Users\Kulbhushan\Documents\MATLAB\BioNES\Help.fig' 
+'C:\Users\Kulbhushan\Documents\MATLAB\BioNES\Help.m'
+```
+
+It is worth noting that all the core-functions resides in the `BioNES.m` and some of the functions are in-lined to avoid overheads.
+
+
