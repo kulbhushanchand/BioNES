@@ -36,7 +36,7 @@
 - [Citation](#citation)
 
 ## About the project
-![screenshot](docs/assets/images/BioNes.jpg)
+![screenshot](docs/assets/images/BioNES.jpg)
 
 BioNES (Biofeedback Nintendo Entertainment System) is an open-source plug-and-play MATLAB-based tool to use NES games for multimodal biofeedback. It can be used to deliver the HRV biofeedback via any game designed for the NES system. It can receive real-time heartbeat interval (RR) values from Arduino + ear-clip PPG sensor (or any sensor capable to send real-time heart rate pulses to Arduino). After the acquisition, it computes real-time heart rate and heart rate variability (HRV), biofeedback parameters and then sends feedback to the FCEUX emulator which is used to play the NES game.
 Besides in-game biofeedback, it also offers real-time data visualization in time-series plots and local saving of data for offline analysis. This tool can benefit the researchers (especially from biofeedback or physiological measurement domain) or hobbyist, who want to quickly deploy a biofeedback system, want to explore the NES games for biofeedback, or just want to record the physiological signals.
