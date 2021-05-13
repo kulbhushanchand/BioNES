@@ -292,9 +292,7 @@ if toggleButtonState == get(hObject,'Max')
     tic;
     timeSample = toc*10^6;
     warnTime = timeSample;
-    gta =  getappdata(handles.figure1,'settings_gta');
-    
- %   isGTA = false;
+
     
     while(toggleButtonState && (toc <= sessionDuration) )
         
@@ -446,18 +444,7 @@ if toggleButtonState == get(hObject,'Max')
     %   sprintf("perDev = %d      bar = %d\n", perHrvDeviation, bar )
          
                
-        %---------- Communicating with GTA5 ----------        
-               
- %       if(isGTA)
- %      if(gta.BytesAvailable)
- %          rG = fread(gta,1);
- %          if(rG == 'p')
- %              dataGta = sprintf("h%dv%db%d",(round(hrAvg(count))), (round(hrvAvg(count))), beat(count));
- %              fwrite(gta,dataGta);
- %          end
- %          flushinput(gta)   % use only ig gta makes faster requests to matlab
- %      end
- %      end
+
                      
         
         
@@ -842,19 +829,6 @@ switch string
             fwrite(ard,32);
             rec_data = uint8(fread(ard,1));
             if(rec_data == 33)
-                
-%                 gta = serial('COM11');
-%                 set(gta,'DataBits',8);
-%                 set(gta,'StopBits',1);
-%                 set(gta,'BaudRate',115200);
-%                 set(gta,'Parity','none');
-%                 fopen(gta);
-%                 pause(1);
-%                 while(gta.BytesAvailable)
-%                     uint8(fread(ard,1));
-%                 end
-%                 setappdata(handles.figure1,'settings_gta',gta);
-                
                 setappdata(handles.figure1,'flags_isArduinoConnected',true);
                 setappdata(handles.figure1,'settings_ard',ard);
                 GuiStates(handles, 'arduino-connected')

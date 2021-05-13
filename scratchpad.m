@@ -514,3 +514,40 @@ hold on
 stem(t,a,'b')
 
 
+%% Important scripts
+
+% before main while loop
+    gta =  getappdata(handles.figure1,'settings_gta');
+    
+ %   isGTA = false;
+
+% inside main while loop
+
+        %---------- Communicating with GTA5 ----------        
+               
+ %       if(isGTA)
+ %      if(gta.BytesAvailable)
+ %          rG = fread(gta,1);
+ %          if(rG == 'p')
+ %              dataGta = sprintf("h%dv%db%d",(round(hrAvg(count))), (round(hrvAvg(count))), beat(count));
+ %              fwrite(gta,dataGta);
+ %          end
+ %          flushinput(gta)   % use only if gta makes faster requests to matlab
+ %      end
+ %      end
+ 
+ 
+ % inside connect arduino
+ 
+ %                 gta = serial('COM11');
+%                 set(gta,'DataBits',8);
+%                 set(gta,'StopBits',1);
+%                 set(gta,'BaudRate',115200);
+%                 set(gta,'Parity','none');
+%                 fopen(gta);
+%                 pause(1);
+%                 while(gta.BytesAvailable)
+%                     uint8(fread(ard,1));
+%                 end
+%                 setappdata(handles.figure1,'settings_gta',gta);
+ 
