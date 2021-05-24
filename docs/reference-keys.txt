@@ -5,6 +5,8 @@ tab:core-directory
 tab:optional-directory
 tab:functions
 tab:variables
+fig:unnamed-chunk-3
+fig:unnamed-chunk-4
 intro
 about
 built-with
