@@ -28,7 +28,7 @@ You can also cite this project if you are using it for your work. See [Citation]
 You can help increase the visibility of this project by starring the [GitHub repository](https://github.com/kulbhushanchand/BioNES).
 
 - **Share with others**  
-You can greatly help the reach by sharing the project [links](#links) with others on social media. You can also review the project on your blog or social media post.
+You can greatly help the reach by sharing the project link with others on social media. You can also review the project on your blog or social media post.
 
 
 ## Code of Conduct
