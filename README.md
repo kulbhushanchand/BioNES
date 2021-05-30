@@ -107,8 +107,7 @@ Use this space to show useful examples of how a project can be used. Additional 
 
 ### Examples
 
-To be added.
-
+See [usage section in documentation](https://kulbhushanchand.github.io/BioNES/usage.html).
 
 <!-- DOCUMENTATION -->
 ## Documentation
