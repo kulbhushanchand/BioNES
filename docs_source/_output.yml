@@ -1,10 +1,13 @@
-#bookdown::bs4_book:
-#  theme:
-#    primary: "#637238"
-#  repo: https://github.com/kulbhushanchand/BioNES
-#  css: style.css
-bookdown::gitbook:
+bookdown::bs4_book:
+  theme:
+    primary: "#637238"
+  repo: 
+    base: https://github.com/kulbhushanchand/BioNES
+    branch: master
+    subdir: docs_source
   css: style.css
+#bookdown::gitbook:
+#  css: style.css
 #  split_by: section+number
   config:
     toc:

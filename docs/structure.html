@@ -1,144 +1,72 @@
 <!DOCTYPE html>
-<html lang="" xml:lang="">
+<html lang="en">
 <head>
-
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 Structure | BioNES documentation</title>
-  <meta name="description" content="This is the documentation for BioNES" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
-
-  <meta property="og:title" content="Chapter 3 Structure | BioNES documentation" />
-  <meta property="og:type" content="book" />
-  
-  <meta property="og:image" content="/assets/images/logo.svg" />
-  <meta property="og:description" content="This is the documentation for BioNES" />
-  
-
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 Structure | BioNES documentation" />
-  
-  <meta name="twitter:description" content="This is the documentation for BioNES" />
-  <meta name="twitter:image" content="/assets/images/logo.svg" />
-
-<meta name="author" content="Kulbhushan Chand" />
-
-
-<meta name="date" content="2021-05-24" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  
-  
-<link rel="prev" href="getting-started.html"/>
-<link rel="next" href="functions-and-variables.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
-<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
-
-
-
-
-
-
-
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-
-
-
-
-<link rel="stylesheet" href="style.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 3 Structure | BioNES documentation</title>
+<meta name="author" content="Kulbhushan Chand">
+<meta name="description" content="3.1 Directory structure The main directory structure (with files) is shown below. . │  .gitattributes │  .gitignore │  BioNES.fig │  BioNES.ino │  BioNES.m │  CODE_OF_CONDUCT.md │  Help.fig │ ...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 3 Structure | BioNES documentation">
+<meta property="og:type" content="book">
+<meta property="og:image" content="/assets/images/logo.svg">
+<meta property="og:description" content="3.1 Directory structure The main directory structure (with files) is shown below. . │  .gitattributes │  .gitignore │  BioNES.fig │  BioNES.ino │  BioNES.m │  CODE_OF_CONDUCT.md │  Help.fig │ ...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 3 Structure | BioNES documentation">
+<meta name="twitter:description" content="3.1 Directory structure The main directory structure (with files) is shown below. . │  .gitattributes │  .gitignore │  BioNES.fig │  BioNES.ino │  BioNES.m │  CODE_OF_CONDUCT.md │  Help.fig │ ...">
+<meta name="twitter:image" content="/assets/images/logo.svg">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.5.1/jquery-3.5.1.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.5.3/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.5.3/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.4/tabs.js"></script><script src="libs/bs3compat-0.2.4/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="style.css">
 </head>
+<body data-spy="scroll" data-target="#toc">
 
-<body>
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
-
-
-  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
-
-    <div class="book-summary">
-      <nav role="navigation">
-
-<ul class="summary">
-<li><a href="./">BioNES documentation</a></li>
-
-<li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
-<ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#developer"><i class="fa fa-check"></i>Developer</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#links"><i class="fa fa-check"></i>Links</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#citation"><i class="fa fa-check"></i>Citation</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#disclaimer"><i class="fa fa-check"></i>Disclaimer</a></li>
-</ul></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
-<ul>
-<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#about"><i class="fa fa-check"></i><b>1.1</b> About the project</a></li>
-<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#built-with"><i class="fa fa-check"></i><b>1.2</b> Built with</a></li>
-<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#features"><i class="fa fa-check"></i><b>1.3</b> Features</a></li>
-<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#why-this-tool"><i class="fa fa-check"></i><b>1.4</b> Why this tool?</a></li>
-</ul></li>
-<li class="chapter" data-level="2" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>2</b> Getting Started</a>
-<ul>
-<li class="chapter" data-level="2.1" data-path="getting-started.html"><a href="getting-started.html#prerequisites"><i class="fa fa-check"></i><b>2.1</b> Prerequisites</a></li>
-<li class="chapter" data-level="2.2" data-path="getting-started.html"><a href="getting-started.html#installation-and-running"><i class="fa fa-check"></i><b>2.2</b> Installation and Running</a></li>
-<li class="chapter" data-level="2.3" data-path="getting-started.html"><a href="getting-started.html#gui"><i class="fa fa-check"></i><b>2.3</b> GUI</a></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="structure.html"><a href="structure.html"><i class="fa fa-check"></i><b>3</b> Structure</a>
-<ul>
-<li class="chapter" data-level="3.1" data-path="structure.html"><a href="structure.html#directory-structure"><i class="fa fa-check"></i><b>3.1</b> Directory structure</a></li>
-<li class="chapter" data-level="3.2" data-path="structure.html"><a href="structure.html#dependencies"><i class="fa fa-check"></i><b>3.2</b> Dependencies</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="functions-and-variables.html"><a href="functions-and-variables.html"><i class="fa fa-check"></i><b>4</b> Functions and variables</a>
-<ul>
-<li class="chapter" data-level="4.1" data-path="functions-and-variables.html"><a href="functions-and-variables.html#functions"><i class="fa fa-check"></i><b>4.1</b> Functions</a></li>
-<li class="chapter" data-level="4.2" data-path="functions-and-variables.html"><a href="functions-and-variables.html#variables"><i class="fa fa-check"></i><b>4.2</b> Variables</a></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="usage.html"><a href="usage.html"><i class="fa fa-check"></i><b>5</b> Usage</a></li>
-<li class="chapter" data-level="6" data-path="roadmap.html"><a href="roadmap.html"><i class="fa fa-check"></i><b>6</b> Roadmap</a></li>
-<li class="chapter" data-level="7" data-path="changelog.html"><a href="changelog.html"><i class="fa fa-check"></i><b>7</b> Changelog</a></li>
-<li class="chapter" data-level="8" data-path="contribute.html"><a href="contribute.html"><i class="fa fa-check"></i><b>8</b> Contributing</a>
-<ul>
-<li class="chapter" data-level="8.1" data-path="contribute.html"><a href="contribute.html#how-to-contribute"><i class="fa fa-check"></i><b>8.1</b> How to contribute?</a></li>
-<li class="chapter" data-level="8.2" data-path="contribute.html"><a href="contribute.html#code-of-conduct"><i class="fa fa-check"></i><b>8.2</b> Code of Conduct</a></li>
-<li class="chapter" data-level="8.3" data-path="contribute.html"><a href="contribute.html#conventions-followed"><i class="fa fa-check"></i><b>8.3</b> Conventions followed</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
-<li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-
-</ul>
-
-      </nav>
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">BioNES documentation</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
 
-    <div class="book-body">
-      <div class="body-inner">
-        <div class="book-header" role="navigation">
-          <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">BioNES documentation</a>
-          </h1>
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Preface</a></li>
+<li><a class="" href="intro.html"><span class="header-section-number">1</span> Introduction</a></li>
+<li><a class="" href="getting-started.html"><span class="header-section-number">2</span> Getting Started</a></li>
+<li><a class="active" href="structure.html"><span class="header-section-number">3</span> Structure</a></li>
+<li><a class="" href="functions-and-variables.html"><span class="header-section-number">4</span> Functions and variables</a></li>
+<li><a class="" href="usage.html"><span class="header-section-number">5</span> Usage</a></li>
+<li><a class="" href="roadmap.html"><span class="header-section-number">6</span> Roadmap</a></li>
+<li><a class="" href="changelog.html"><span class="header-section-number">7</span> Changelog</a></li>
+<li><a class="" href="contribute.html"><span class="header-section-number">8</span> Contributing</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/kulbhushanchand/BioNES">View book source <i class="fab fa-github"></i></a></p>
         </div>
-
-        <div class="page-wrapper" tabindex="-1" role="main">
-          <div class="page-inner">
-
-            <section class="normal" id="section-">
-<div id="structure" class="section level1" number="3">
-<h1><span class="header-section-number">Chapter 3</span> Structure</h1>
-<hr />
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="structure" class="section level1" number="3">
+<h1>
+<span class="header-section-number">3</span> Structure<a class="anchor" aria-label="anchor" href="#structure"><i class="fas fa-link"></i></a>
+</h1>
+<hr>
 <div id="directory-structure" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> Directory structure</h2>
+<h2>
+<span class="header-section-number">3.1</span> Directory structure<a class="anchor" aria-label="anchor" href="#directory-structure"><i class="fas fa-link"></i></a>
+</h2>
 <p>The main directory structure (with files) is shown below.</p>
 <pre><code>.
 │   .gitattributes
@@ -164,18 +92,17 @@
 └───fceux64
 </code></pre>
 <p>An overview of what each of these does is described in the following tables.</p>
-<table>
-<caption><span id="tab:core-directory">Table 3.1: </span> Description of core files/folders</caption>
+<div class="inline-table"><table class="table table-sm">
+<caption>
+<span id="tab:core-directory">Table 3.1: </span> Description of core files/folders</caption>
 <colgroup>
-<col width="9%" />
-<col width="90%" />
+<col width="9%">
+<col width="90%">
 </colgroup>
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th>FILE / DIRECTORY</th>
 <th>DESCRIPTION</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td><code>BioNES.fig</code></td>
@@ -202,19 +129,18 @@
 <td>Directory of <code>FCEUX</code> emulator (<code>64-bit</code> version)</td>
 </tr>
 </tbody>
-</table>
-<table>
-<caption><span id="tab:optional-directory">Table 3.2: </span> Description of optional files/folders</caption>
+</table></div>
+<div class="inline-table"><table class="table table-sm">
+<caption>
+<span id="tab:optional-directory">Table 3.2: </span> Description of optional files/folders</caption>
 <colgroup>
-<col width="19%" />
-<col width="80%" />
+<col width="19%">
+<col width="80%">
 </colgroup>
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th>FILE / DIRECTORY</th>
 <th>DESCRIPTION</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td><code>.gitattributes</code></td>
@@ -253,83 +179,63 @@
 <td>Folder with function files used in analysis of offline data.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </div>
 <div id="dependencies" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Dependencies</h2>
+<h2>
+<span class="header-section-number">3.2</span> Dependencies<a class="anchor" aria-label="anchor" href="#dependencies"><i class="fas fa-link"></i></a>
+</h2>
 <p>Here discussed what functions and scripts <code>BioNES</code> is dependent upon. The <a href="https://in.mathworks.com/help/matlab/ref/matlab.codetools.requiredfilesandproducts.html"><code>matlab.codetools.requiredFilesAndProducts</code></a> function is used to generate the list of dependencies.</p>
 <p><strong>List of MathWorks products possibly required</strong></p>
 <ul>
-<li><code>MATLAB - ver.9.3</code><br />
+<li>
+<code>MATLAB - ver.9.3</code><br>
 </li>
 <li><code>Instrument Control Toolbox - ver.3.12</code></li>
 </ul>
 <p><strong>List of user-authored MATLAB program files required</strong></p>
-<pre><code>&#39;C:\Users\Kulbhushan\Documents\MATLAB\BioNES\BioNES.fig&#39;
-&#39;C:\Users\Kulbhushan\Documents\MATLAB\BioNES\BioNES.m&#39; 
-&#39;C:\Users\Kulbhushan\Documents\MATLAB\BioNES\Help.fig&#39; 
-&#39;C:\Users\Kulbhushan\Documents\MATLAB\BioNES\Help.m&#39;</code></pre>
+<pre><code>'C:\Users\Kulbhushan\Documents\MATLAB\BioNES\BioNES.fig'
+'C:\Users\Kulbhushan\Documents\MATLAB\BioNES\BioNES.m' 
+'C:\Users\Kulbhushan\Documents\MATLAB\BioNES\Help.fig' 
+'C:\Users\Kulbhushan\Documents\MATLAB\BioNES\Help.m'</code></pre>
 <p>It is worth noting that all the core-functions resides in the <code>BioNES.m</code> and some of the functions are in-lined to avoid overheads.</p>
 
 </div>
 </div>
-            </section>
+  <div class="chapter-nav">
+<div class="prev"><a href="getting-started.html"><span class="header-section-number">2</span> Getting Started</a></div>
+<div class="next"><a href="functions-and-variables.html"><span class="header-section-number">4</span> Functions and variables</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#structure"><span class="header-section-number">3</span> Structure</a></li>
+<li><a class="nav-link" href="#directory-structure"><span class="header-section-number">3.1</span> Directory structure</a></li>
+<li><a class="nav-link" href="#dependencies"><span class="header-section-number">3.2</span> Dependencies</a></li>
+</ul>
 
-          </div>
-        </div>
-      </div>
-<a href="getting-started.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="functions-and-variables.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
-    </div>
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/kulbhushanchand/BioNES/blob/master/docs_source/03-structure.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/kulbhushanchand/BioNES/edit/master/docs_source/03-structure.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>BioNES documentation</strong>" was written by Kulbhushan Chand. It was last built on 2021-09-19.</p>
   </div>
-<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
-<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
-<script>
-gitbook.require(["gitbook"], function(gitbook) {
-gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": null,
-"toc": {
-"collapse": "subsection"
-}
-});
-});
-</script>
 
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
 </body>
-
 </html>
