@@ -145,11 +145,19 @@ This project is distributed under the `GPLv3` License. See [LICENSE](https://git
 
 ## Citation
 
-To be filled
+If you are using this software, please cite the following publications
 
 ```
-citation
+Chand, K., & Khosla, A. (2022a). BioNES: A plug-and-play MATLAB-based tool to use NES games for multimodal biofeedback. SoftwareX, 19, 101184. https://doi.org/10.1016/j.softx.2022.101184
+
+Chand, K., & Khosla, A. (2022b). Efficacy of Using Retro Games in Multimodal Biofeedback Systems for Mental Relaxation. International Journal of Gaming and Computer-Mediated Simulations (IJGCMS), 14(1), 1–23. https://doi.org/10.4018/IJGCMS.295874
+
+OSF | Efficacy of a multimodal biofeedback system for mental relaxation using NES games. (n.d.). Retrieved September 15, 2022, from https://osf.io/q5ez3/
+
+Chand, K. (2021). Kulbhushanchand/BioNES [MATLAB]. https://github.com/kulbhushanchand/BioNES (Original work published 2021)
+
 ```
+
 
 
 <!-- ACKNOWLEDGMENTS -->
